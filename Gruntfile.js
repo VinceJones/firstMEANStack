@@ -13,30 +13,60 @@ module.exports = function(grunt) {
         },
         copy: {
             main: {
-                expand: true,
-                cwd: "node_modules/",
-                src: [
-                    "angular/angular.min.js",
-                    "angular/angular.min.js.map",
-                    "angular/angular-csp.css",
-                    "bootstrap/dist/css/bootstrap.css",
-                    "bootstrap/dist/css/bootstrap.css.map",
-                    "bootstrap/dist/css/bootstrap-theme.css",
-                    "bootstrap/dist/css/bootstrap-theme.css.map"
-                ],
-                "dest": "server/public/vendors/"
-            }
-        },
-        copy: {
-            main: {
-                expand: true,
-                cwd: "client/",
-                src: [
-                    "styles.css"
-                ],
-                "dest": "server/public/assets/styles"
+                files: [
+                    {
+                        expand: true,
+                        cwd: "node_modules/angular",
+                        src: [
+                            "/angular.min.js",
+                            "/angular.min.js.map",
+                            "/angular-csp.css"
+                        ],
+                        "dest": "server/public/vendors"
+                    },
+
+                    {
+                        expand: true,
+                        cwd: "node_modules/bootstrap",
+                        src: [
+                            "dist/css/*",
+                            "dist/fonts/*",
+                            "dist/js/*",
+                            "fonts/*"
+                        ],
+                        "dest": "server/public/vendors/bootstrap"
+                    },
+                    {
+                        expand: true,
+                        cwd: "node_modules/",
+                        src: [
+                            "bootstrap/fonts/*"
+                        ],
+                        "dest": "server/public/vendors"
+                    },
+                    {
+                        expand: true,
+                        cwd: "node_modules/",
+                        src: [
+                            "jquery/dist/jquery.min.js",
+                            "jquery/dist/jquery.min.map"
+                        ],
+                        "dest": "server/public/vendors/jquery"
+                    },
+                    {
+                        expand: true,
+                        cwd: "client/",
+                        src: [
+                            "styles.css"
+                        ],
+                        "dest": "server/public/assets/styles"
+                    }
+                ]
             }
         }
+
+
+
     });
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');

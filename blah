@@ -1,0 +1,9 @@
+                    {
+                        expand: true,
+                        cwd: "node_modules/",
+                        src: [
+                            "bootstrap/dist/css/bootstrap.min.css",
+                            "bootstrap/dist/css/bootstrap.css.map"
+                        ],
+                        "dest": "server/public/vendors"
+                    },
