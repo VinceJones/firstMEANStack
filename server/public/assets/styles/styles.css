@@ -1,0 +1,21 @@
+body {
+    background-color: #E6E2AF;
+}
+
+.header {
+    text-align: center;
+    background-color: #3498DB;
+    margin-bottom: 0px;
+}
+
+.typeCat p {
+    color: #ffffff;
+    display: inline;
+}
+.navbar {
+    margin-top: 0px;
+}
+
+li {
+    list-style-type: none;
+}
