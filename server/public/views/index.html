@@ -40,7 +40,7 @@
         <div class="col-md-3 col-md-offset-3">
             <h4 class="lead">Cats</h4>
             <ul>
-                <li ng-repeat="cat in cats">{{cat.name}}</li>
+                <li ng-repeat="cat in cats">{{cat.name}}    <button ng-click="remove(cat)" class="btn btn-danger btn-sm removeCat">X</button></li>
             </ul>
         </div>
     </div>

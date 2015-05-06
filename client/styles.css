@@ -19,3 +19,8 @@ body {
 li {
     list-style-type: none;
 }
+
+.removeCat button {
+    height: 50px;
+    width: 75px;
+}

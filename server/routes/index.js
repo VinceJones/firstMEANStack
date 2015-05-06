@@ -12,7 +12,7 @@ router.post('/add', function(request, response, next){
     kitty.save(function(err){
         if(err) console.log('meow %s', err);
         response.send(kitty.toJSON());
-        next();
+        //next();
     });
 });
 
@@ -20,12 +20,22 @@ router.get('/cats', function(request, response, next){
     return Cat.find({}).exec(function(err, cats){
         if(err) throw new Error("This error", err);
         response.send(JSON.stringify(cats));
-        next();
+        //next();
     });
 });
 
 router.get("/*", function(req, res, next) {
     console.log("Here is a console log");
+    var file = req.params[0] || 'views/index.html';
+    res.sendFile(path.join(__dirname, '../public', file));
+    //next();
+});
+
+router.post('/remove', function(req, res, next) {
+    var kitty = Cat.find({name: req.body.name});
+    kitty.remove(function(error) {
+        if (error) console.log('Error when removing cat: %s', error);
+    });
     var file = req.params[0] || 'views/index.html';
     res.sendFile(path.join(__dirname, '../public', file));
     //next();
